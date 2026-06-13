@@ -102,11 +102,13 @@ a:hover { color: var(--gold); }
 
 .hero-image {
   position: absolute;
-  inset: 0;
-  background-image: url("../images/hero.jpg");
+  inset: -10% 0 0 0;
+  background-image: url("../images/Gunay_Najafzade_0.jpeg");
   background-size: cover;
   background-position: center 30%;
   filter: saturate(.92);
+  will-change: transform;
+  transform: scale(1.08);
 }
 
 /* candlelit veil over the photograph */
@@ -122,6 +124,7 @@ a:hover { color: var(--gold); }
   position: relative;
   z-index: 1;
   padding: 0 var(--pad-x);
+  will-change: transform, opacity;
 }
 
 .hero-eyebrow {
@@ -129,18 +132,18 @@ a:hover { color: var(--gold); }
   letter-spacing: .42em;
   text-transform: uppercase;
   color: var(--gold);
-  margin-bottom: 1.4rem;
+  margin-bottom: 1rem;
 }
 
 .hero-name {
-  font-family: var(--font-display);
-  font-weight: 500;
-  font-style: italic;
-  font-size: clamp(3.4rem, 11vw, 8.5rem);
-  line-height: .95;
-  letter-spacing: .01em;
+  font-family: "Great Vibes", var(--font-display);
+  font-weight: 400;
+  font-style: normal;
+  font-size: clamp(4rem, 13vw, 10.5rem);
+  line-height: 1.04;
+  letter-spacing: .015em;
   color: var(--parchment);
-  text-shadow: 0 2px 40px rgba(0,0,0,.55);
+  text-shadow: 0 2px 50px rgba(0,0,0,.65);
 }
 
 .hero-line {
@@ -366,3 +369,4 @@ a:hover { color: var(--gold); }
   .reveal { opacity: 1; transform: none; transition: none; }
   .hero-scroll span { animation: none; }
 }
+
