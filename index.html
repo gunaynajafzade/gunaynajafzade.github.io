@@ -8,7 +8,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -67,7 +67,7 @@
     <div class="work-grid">
       <figure class="work reveal">
         <div class="work-frame">
-          <img src="images/serket.jpg" alt="Ancient Egyptian Scorpion Goddess Serket — oil on canvas" loading="lazy">
+          <img src="images/serket.png" alt="Ancient Egyptian Scorpion Goddess Serket — oil on canvas" loading="lazy">
         </div>
         <figcaption>
           <h3>Ancient Egyptian Scorpion Goddess “Serket”</h3>
@@ -77,7 +77,7 @@
 
       <figure class="work reveal">
         <div class="work-frame">
-          <img src="images/visit-to-the-sister.jpg" alt="A Visit to the Sister — Inanna before Ereshkigal, oil on canvas" loading="lazy">
+          <img src="images/visit-to-the-sister.png" alt="A Visit to the Sister — Inanna before Ereshkigal, oil on canvas" loading="lazy">
         </div>
         <figcaption>
           <h3>“A Visit to the Sister”</h3>
@@ -87,7 +87,7 @@
 
       <figure class="work reveal">
         <div class="work-frame">
-          <img src="images/sinai.jpg" alt="Sinai Mountains, Egypt — acrylic on canvas" loading="lazy">
+          <img src="images/sinai.png" alt="Sinai Mountains, Egypt — acrylic on canvas" loading="lazy">
         </div>
         <figcaption>
           <h3>“Sinai Mountains, Egypt”</h3>
@@ -111,7 +111,7 @@
     <div class="work-grid">
       <figure class="work reveal">
         <div class="work-frame">
-          <img src="images/cologne.jpg" alt="En plein air in Cologne, Germany — oil on canvas" loading="lazy">
+          <img src="images/cologne.png" alt="En plein air in Cologne, Germany — oil on canvas" loading="lazy">
         </div>
         <figcaption>
           <h3>En plein air in Cologne, Germany</h3>
@@ -121,7 +121,7 @@
 
       <figure class="work reveal">
         <div class="work-frame">
-          <img src="images/ibiza.jpg" alt="Ibiza Summer — acrylic on canvas" loading="lazy">
+          <img src="images/ibiza.png" alt="Ibiza Summer — acrylic on canvas" loading="lazy">
         </div>
         <figcaption>
           <h3>Ibiza Summer</h3>
@@ -131,7 +131,7 @@
 
       <figure class="work reveal">
         <div class="work-frame">
-          <img src="images/hamburg.jpg" alt="Port in Hamburg, Germany — acrylic on canvas" loading="lazy">
+          <img src="images/hamburg.png" alt="Port in Hamburg, Germany — acrylic on canvas" loading="lazy">
         </div>
         <figcaption>
           <h3>Port in Hamburg, Germany</h3>
@@ -211,6 +211,34 @@
       document.querySelectorAll('.reveal').forEach(el => io.observe(el));
     } else {
       document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
+    }
+
+    // Hero parallax — photo and name drift at different speeds
+    if (!prefersReduced) {
+      const heroImage = document.querySelector('.hero-image');
+      const heroContent = document.querySelector('.hero-content');
+      const hero = document.querySelector('.hero');
+      let ticking = false;
+
+      function parallax() {
+        const y = window.scrollY;
+        const limit = hero.offsetHeight;
+        if (y <= limit) {
+          heroImage.style.transform = 'translateY(' + (y * 0.45) + 'px) scale(1.08)';
+          heroContent.style.transform = 'translateY(' + (y * 0.22) + 'px)';
+          heroContent.style.opacity = Math.max(0, 1 - (y / limit) * 1.25);
+        }
+        ticking = false;
+      }
+
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(parallax);
+          ticking = true;
+        }
+      }, { passive: true });
+
+      parallax();
     }
   </script>
 
