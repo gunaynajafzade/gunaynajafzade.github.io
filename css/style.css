@@ -117,9 +117,9 @@ a:hover { color: var(--gold); }
 @media (min-width: 1150px) {
   .hero-image {
     background-size: cover;
-    background-position: center 16%;
-    -webkit-mask-image: radial-gradient(ellipse 52% 80% at 50% 40%, #000 40%, rgba(0,0,0,.55) 66%, transparent 84%);
-    mask-image: radial-gradient(ellipse 52% 80% at 50% 40%, #000 40%, rgba(0,0,0,.55) 66%, transparent 84%);
+    background-position: center 38%;
+    -webkit-mask-image: radial-gradient(ellipse 52% 82% at 50% 44%, #000 42%, rgba(0,0,0,.55) 68%, transparent 86%);
+    mask-image: radial-gradient(ellipse 52% 82% at 50% 44%, #000 42%, rgba(0,0,0,.55) 68%, transparent 86%);
   }
 }
 
@@ -498,12 +498,8 @@ a:hover { color: var(--gold); }
   padding: clamp(.6rem, 1.2vw, 1rem);
   background: var(--ground-2);
 }
-.detail-image.is-tondo {
-  overflow: hidden;
-}
 .detail-image.is-tondo img {
   background: var(--ground);
-  transform: scale(1.02);
   max-height: 80vh;
   width: auto;
 }
