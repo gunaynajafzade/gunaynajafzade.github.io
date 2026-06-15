@@ -116,21 +116,13 @@ a:hover { color: var(--gold); }
    keeps the palette and figure prominent. */
 @media (min-width: 1150px) {
   .hero-image {
-    background-size: auto 118%;
+    background-size: auto 116%;
     background-repeat: no-repeat;
     background-position: center 8%;
-    -webkit-mask-image: radial-gradient(ellipse 50% 82% at 50% 46%, #000 44%, rgba(0,0,0,.55) 68%, transparent 86%);
-    mask-image: radial-gradient(ellipse 50% 82% at 50% 46%, #000 44%, rgba(0,0,0,.55) 68%, transparent 86%);
-  }
-}
-@media (min-width: 1500px) {
-  .hero-image {
-    background-size: auto 122%;
-  }
-}
-@media (min-width: 1900px) {
-  .hero-image {
-    background-size: auto 128%;
+    -webkit-mask-image:
+      linear-gradient(to right, transparent 0%, #000 30%, #000 70%, transparent 100%);
+    mask-image:
+      linear-gradient(to right, transparent 0%, #000 30%, #000 70%, transparent 100%);
   }
 }
 
