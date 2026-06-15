@@ -103,7 +103,7 @@ a:hover { color: var(--gold); }
 .hero-image {
   position: absolute;
   inset: 0;
-  background-image: url("../images/Gunay_Najafzade_0.jpeg");
+  background-image: url("../images/Gunay_Najafzade_0.jpg");
   background-size: cover;
   background-position: center 22%;
   filter: saturate(.92);
