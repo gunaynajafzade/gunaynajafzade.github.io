@@ -14,23 +14,32 @@
   <header class="nav">
     <a class="nav-name" href="index.html">Günay Najafzade</a>
     <nav class="nav-links" aria-label="Main">
-      <a href="index.html#works">Portfolio</a>
-      <a href="index.html#about">About</a>
-      <a href="index.html#contact">Contact</a>
+      <a href="index.html#works" data-i18n="nav.portfolio">Portfolio</a>
+      <a href="index.html#about" data-i18n="nav.about">About</a>
+      <a href="index.html#contact" data-i18n="nav.contact">Contact</a>
+      <div class="lang-switch">
+        <button class="lang-current" aria-haspopup="true" aria-expanded="false">EN</button>
+        <ul class="lang-menu">
+          <li><button data-lang="en">English</button></li>
+          <li><button data-lang="az">Azərbaycanca</button></li>
+          <li><button data-lang="fr">Français</button></li>
+          <li><button data-lang="de">Deutsch</button></li>
+        </ul>
+      </div>
     </nav>
   </header>
 
   <main class="detail">
-    <a class="detail-back" href="index.html#works">← Back to Portfolio</a>
+    <a class="detail-back" href="index.html#works" data-i18n="detail.back">← Back to Portfolio</a>
     <div class="detail-grid is-stacked">
       <div class="detail-image is-tondo">
         <img src="images/sinai.png" alt="Sinai Mountains, Egypt">
       </div>
       <div class="detail-info">
-        <p class="detail-eyebrow">Time Travel</p>
-        <h1 class="detail-title">&ldquo;Sinai Mountains, Egypt&rdquo;</h1>
-        <p class="detail-meta">Acrylic on canvas &middot; &empty; 30 cm &middot; 2024</p>
-        <div class="detail-body">
+        <p class="detail-eyebrow" data-i18n="tt.eyebrow">Time Travel</p>
+        <h1 class="detail-title" data-i18n="work.sinai.title">&ldquo;Sinai Mountains, Egypt&rdquo;</h1>
+        <p class="detail-meta" data-i18n="work.sinai.meta">Acrylic on canvas &middot; &empty; 30 cm &middot; 2024</p>
+        <div class="detail-body" data-i18n="desc.sinai" data-i18n-html="1">
         <p>Part of an ongoing series, this work imagines the first arrival of celestial visitors to Earth, seen through a spacecraft window.</p>
         <p>The Sinai Mountains were later transformed into one of humanity&rsquo;s sacred geographies, becoming associated with divine encounters, revelation and the origins of religious tradition. Here, however, they are presented in an earlier moment, before history and civilization.</p>
         </div>
@@ -39,14 +48,56 @@
   </main>
 
   <nav class="detail-nav">
-    <a class="nav-prev" href="visit-to-the-sister.html">← A Visit to the Sister</a>
-    <a class="nav-next" href="cologne.html">Cologne →</a>
+    <a class="nav-prev" href="visit-to-the-sister.html"><span data-i18n="detail.prev">Previous</span></a>
+    <a class="nav-next" href="cologne.html"><span data-i18n="detail.next">Next</span></a>
   </nav>
 
   <footer class="footer">
-    <p>&copy; <span id="year"></span> Günay Najafzade. All rights reserved.</p>
+    <p>&copy; <span id="year"></span> Günay Najafzade. <span data-i18n="footer.rights">All rights reserved.</span></p>
   </footer>
 
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script src="js/i18n.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function applyLanguage(lang) {
+      const dict = I18N[lang];
+      if (!dict) return;
+      document.documentElement.lang = lang;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (!dict[key]) return;
+        if (el.hasAttribute('data-i18n-html')) {
+          el.innerHTML = dict[key].split('|').map(p => '<p>' + p + '</p>').join('');
+        } else {
+          el.innerHTML = dict[key];
+        }
+      });
+      document.querySelector('.lang-current').textContent = lang.toUpperCase();
+      document.querySelectorAll('.lang-menu button').forEach(b => {
+        b.classList.toggle('is-active', b.getAttribute('data-lang') === lang);
+      });
+      try { localStorage.setItem('lang', lang); } catch(e) {}
+    }
+
+    const langSwitch = document.querySelector('.lang-switch');
+    const langCurrent = document.querySelector('.lang-current');
+    langCurrent.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const open = langSwitch.classList.toggle('open');
+      langCurrent.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    document.querySelectorAll('.lang-menu button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        applyLanguage(btn.getAttribute('data-lang'));
+        langSwitch.classList.remove('open');
+      });
+    });
+    document.addEventListener('click', () => langSwitch.classList.remove('open'));
+
+    let saved = 'en';
+    try { saved = localStorage.getItem('lang') || 'en'; } catch(e) {}
+    applyLanguage(saved);
+  </script>
 </body>
 </html>
