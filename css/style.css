@@ -218,16 +218,15 @@ a:hover { color: var(--gold); }
   background: linear-gradient(to left, transparent, rgba(201,164,92,.5));
 }
 .gates i {
-  width: 5px;
-  height: 5px;
-  background: var(--gold);
-  transform: rotate(45deg);
-  opacity: .8;
+  display: none;
 }
 .gates .gate-mid {
-  width: 8px;
-  height: 8px;
-  background: var(--terracotta);
+  display: block;
+  width: 7px;
+  height: 7px;
+  background: var(--gold);
+  transform: rotate(45deg);
+  opacity: .9;
 }
 
 /* =========== Works =========== */
@@ -620,3 +619,151 @@ a:hover { color: var(--gold); }
 .lang-menu button.is-active {
   color: var(--terracotta);
 }
+
+/* =========================================================
+   INQUIRY BLOCK (paintings + objects)
+   ========================================================= */
+.artwork-props {
+  margin: 1.8rem 0 0;
+  max-width: 30rem;
+}
+.artwork-props .prop {
+  display: flex;
+  gap: 1rem;
+  padding: .55rem 0;
+  border-bottom: 1px solid rgba(201,164,92,.12);
+  font-size: 1rem;
+}
+.artwork-props .prop-k {
+  color: var(--parchment-dim);
+  min-width: 6.5rem;
+  letter-spacing: .04em;
+}
+.artwork-props .prop-v {
+  color: var(--parchment);
+}
+.inquiry {
+  margin: 1.8rem 0 0;
+  max-width: 30rem;
+  border: 1px solid rgba(201,164,92,.25);
+  background: var(--ground-2);
+  padding: 1.4rem 1.4rem 1.5rem;
+}
+.inquiry h3 {
+  color: var(--parchment);
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 500;
+  margin: 0 0 .35rem;
+}
+.inquiry p.inq-sub {
+  color: var(--parchment-dim);
+  font-size: .92rem;
+  line-height: 1.55;
+  margin: 0 0 1.1rem;
+}
+.inq-btnrow {
+  display: flex;
+  gap: .75rem;
+  flex-wrap: wrap;
+}
+.inq-btn {
+  flex: 1;
+  min-width: 9rem;
+  text-align: center;
+  padding: .75rem .9rem;
+  font-family: var(--font-body);
+  font-size: .95rem;
+  letter-spacing: .04em;
+  border-radius: 2px;
+  text-decoration: none;
+  transition: background .25s ease, color .25s ease, border-color .25s ease;
+}
+.inq-btn-primary {
+  background: var(--gold);
+  color: var(--ground);
+  border: 1px solid var(--gold);
+}
+.inq-btn-primary:hover {
+  background: #d8b56e;
+  border-color: #d8b56e;
+}
+.inq-btn-ghost {
+  background: transparent;
+  color: var(--parchment);
+  border: 1px solid rgba(201,164,92,.45);
+}
+.inq-btn-ghost:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+.inq-or {
+  color: var(--parchment-dim);
+  opacity: .7;
+  font-size: .78rem;
+  text-align: center;
+  margin: 1rem 0 .9rem;
+  letter-spacing: .1em;
+}
+.inq-contacts {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.6rem;
+}
+.inq-contacts a {
+  color: var(--gold);
+  text-decoration: none;
+  font-size: .9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  transition: color .2s ease;
+}
+.inq-contacts a:hover { color: #d8b56e; }
+.inq-contacts svg { width: 18px; height: 18px; }
+
+/* =========================================================
+   OBJECT GALLERY (multi-photo pages)
+   ========================================================= */
+.detail-image.gallery #gallery-main {
+  width: 100%;
+  max-height: 78vh;
+  object-fit: contain;
+  background: var(--ground-2);
+  border: 1px solid rgba(201,164,92,.25);
+  padding: clamp(.6rem, 1.2vw, 1rem);
+}
+.gallery-thumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+  margin-top: .9rem;
+}
+.gallery-thumb {
+  flex: 0 0 auto;
+  width: 4.7rem;
+  height: 4.7rem;
+  padding: 3px;
+  background: var(--ground-2);
+  border: 1px solid rgba(201,164,92,.2);
+  cursor: pointer;
+  transition: border-color .2s ease, opacity .2s ease;
+  opacity: .7;
+}
+.gallery-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.gallery-thumb:hover { opacity: 1; border-color: rgba(201,164,92,.5); }
+.gallery-thumb.is-active { opacity: 1; border-color: var(--gold); }
+.gallery-hint {
+  color: var(--parchment-dim);
+  font-size: .8rem;
+  font-style: italic;
+  margin-top: .8rem;
+  opacity: .8;
+}
+.category-page .detail-back { display: inline-block; margin-bottom: 1.5rem; }
