@@ -336,7 +336,7 @@ a:hover { color: var(--gold); }
 
 .about {
   padding: clamp(5rem, 12vh, 9rem) var(--pad-x);
-  background: var(--ground-2);
+  background: var(--ground);
   border-top: 1px solid rgba(201,164,92,.14);
   border-bottom: 1px solid rgba(201,164,92,.14);
 }
