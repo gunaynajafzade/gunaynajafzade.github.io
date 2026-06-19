@@ -14,8 +14,8 @@
    ========================================================= */
 
 :root {
-  --ground: #211610;
-  --ground-2: #2E1F15;
+  --ground: #1A110B;
+  --ground-2: #241710;
   --parchment: #E9DAC0;
   --parchment-dim: #B9A88B;
   --terracotta: #C26E4A;
@@ -336,7 +336,7 @@ a:hover { color: var(--gold); }
 
 .about {
   padding: clamp(5rem, 12vh, 9rem) var(--pad-x);
-  background: var(--ground);
+  background: var(--ground-2);
   border-top: 1px solid rgba(201,164,92,.14);
   border-bottom: 1px solid rgba(201,164,92,.14);
 }
@@ -767,3 +767,26 @@ a:hover { color: var(--gold); }
   opacity: .8;
 }
 .category-page .detail-back { display: inline-block; margin-bottom: 1.5rem; }
+
+/* =========================================================
+   "VIEW DETAILS" CLICK CUE on portfolio cards
+   ========================================================= */
+.work { cursor: pointer; }
+.work-view {
+  display: inline-block;
+  margin-top: .55rem;
+  color: var(--gold);
+  font-family: var(--font-body);
+  font-size: .8rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(201,164,92,.35);
+  padding-bottom: 2px;
+  transition: color .25s ease, border-color .25s ease, letter-spacing .25s ease;
+}
+.work:hover .work-view,
+.work:focus-visible .work-view {
+  color: #d8b56e;
+  border-color: var(--gold);
+  letter-spacing: .16em;
+}
