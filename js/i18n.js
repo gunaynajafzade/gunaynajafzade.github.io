@@ -6,6 +6,7 @@
 const I18N = {
   en: {
     "label": "English",
+    "work.view": "View details →",
     "nav.portfolio": "Portfolio",
     "nav.about": "About",
     "nav.contact": "Contact",
@@ -99,6 +100,7 @@ const I18N = {
   },
   az: {
     "label": "Az\u0259rbaycanca",
+    "work.view": "Ətraflı bax →",
     "nav.portfolio": "Portfolio",
     "nav.about": "Haqq\u0131nda",
     "nav.contact": "\u018Flaq\u0259",
@@ -192,6 +194,7 @@ const I18N = {
   },
   fr: {
     "label": "Fran\u00E7ais",
+    "work.view": "Voir les détails →",
     "nav.portfolio": "Portfolio",
     "nav.about": "\u00C0 propos",
     "nav.contact": "Contact",
@@ -285,6 +288,7 @@ const I18N = {
   },
   de: {
     "label": "Deutsch",
+    "work.view": "Details ansehen →",
     "nav.portfolio": "Portfolio",
     "nav.about": "\u00DCber mich",
     "nav.contact": "Kontakt",
