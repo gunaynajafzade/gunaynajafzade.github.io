@@ -37,10 +37,11 @@
     <div class="work-grid">
       <a class="work reveal" href="heart-of-medusa.html">
         <div class="work-frame">
-          <img src="images/mixed/snake_3.jpg" alt="The Heart of Medusa" loading="lazy">
+          <img src="images/mixed/snake_1.jpg" alt="The Heart of Medusa" loading="lazy">
         </div>
         <div class="work-caption">
           <h3 data-i18n="obj.medusa.title">The Heart of Medusa</h3>
+                  <span class="work-view" data-i18n="work.view">View details &rarr;</span>
         </div>
       </a>
       <a class="work reveal" href="the-watcher.html">
@@ -49,6 +50,7 @@
         </div>
         <div class="work-caption">
           <h3 data-i18n="obj.watcher.title">The Watcher</h3>
+                  <span class="work-view" data-i18n="work.view">View details &rarr;</span>
         </div>
       </a>
     </div>
@@ -81,11 +83,6 @@
     document.addEventListener('click',()=>langSwitch.classList.remove('open'));
     let saved='en'; try{ saved=localStorage.getItem('lang')||'en'; }catch(e){}
     applyLanguage(saved);
-    // reveal on scroll
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('is-visible'); obs.unobserve(e.target); }});
-    }, { threshold: 0.12 });
-    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
   </script>
 </body>
 </html>
