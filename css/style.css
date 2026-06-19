@@ -492,8 +492,13 @@ a:hover { color: var(--gold); }
 .detail-grid.is-stacked .detail-body { max-width: 46rem; }
 
 .detail-image {
-  position: sticky;
-  top: 5rem;
+  position: static;
+}
+@media (min-width: 900px) {
+  .detail-image {
+    position: sticky;
+    top: 5rem;
+  }
 }
 .detail-image img {
   width: 100%;
