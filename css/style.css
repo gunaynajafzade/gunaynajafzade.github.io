@@ -420,12 +420,14 @@ a:hover { color: var(--gold); }
 
 /* =========== Reveal animation =========== */
 
-.reveal {
+/* Content is visible by default. The fade-in animation only applies when
+   JS adds .js-reveal to <html> — so content can never be stuck invisible. */
+.js-reveal .reveal {
   opacity: 0;
   transform: translateY(22px);
   transition: opacity .8s ease, transform .8s ease;
 }
-.reveal.is-visible {
+.js-reveal .reveal.is-visible {
   opacity: 1;
   transform: none;
 }
